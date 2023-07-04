@@ -20,13 +20,13 @@ create table staff (
 	id int primary key auto_increment,
     name varchar (20) not null,
     surname varchar (20) not null,
-    speciality varchar (20) not null,
+   роst varchar (20) not null,
     seniority int not null,
     salary int not null,
     age int not null
 );
 
-insert staff( name, surname, speciality, seniority, salary, age)
+insert staff( name, surname, роst, seniority, salary, age)
 values
 	('Вася', 'Васькин', 'начальник', 40, 100000, 60),
     ('Петя', 'Петькин', 'начальник', 8, 70000, 30),
