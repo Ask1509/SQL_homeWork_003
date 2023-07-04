@@ -10,33 +10,8 @@ USE homework_database_003;
   city varchar (40)
   );
   
-# 1. Напишите запрос, который сосчитал бы все суммы заказов, выполненных 1 января 2016 года.
-SELECT dataOrder, SUM(ordersPrice) as sumSales
-FROM Orders
-WHERE dataOrder = '2016-01-01';
 
-# 2. Напишите запрос, который сосчитал бы число различных, отличных от NULL значений поля city в таблице заказчиков.
-SELECT COUNT(DISTINCT city) as nnull
-FROM Orders;
-
-# 3. Напишите запрос, который выбрал бы наименьшую сумму для каждого заказчика.
-SELECT MIN(ordersPrice) as min,recipient
-FROM Orders
-GROUP BY recipient;
-
-# 4*. Напишите запрос, который бы выбирал заказчиков чьи имена начинаются с буквы Г. Используется оператор "LIKE"
-SELECT recipient
-FROM Orders
-WHERE recipient LIKE 'Г%'
-ORDER BY recipient;
-
-# 5. Напишите запрос, который выбрал бы высший рейтинг в каждом городе.
-SELECT city, COUNT(city) AS rating
-FROM Orders
-GROUP BY city
-HAVING rating > 0;
-
-# Задание 2.
+# Задание 
 
 CREATE DATABASE hw3;
 use hw3;
@@ -84,22 +59,22 @@ order by salary desc
 limit 5;
 
 
--- 3. Подсчитать суммарную зарплату(salary) по каждой специальности (speciality)
-select speciality, sum(salary)
+-- 3. Подсчитать суммарную зарплату(salary) по каждой специальности (роst)
+select роst, sum(salary)
 from staff
-group by speciality;
+group by роst;
 
--- 4. Найти количество сотрудников по специальности “Рабочий” (speciality) в возрасте от 24 до 42 лет.
+-- 4. Найти количество сотрудников по специальности “Рабочий” (роst) в возрасте от 29 до 49 лет.
 select count(*)
 from staff
-where speciality='рабочий' and age between 24 and 42;
+where роst='рабочий' and age between 29 and 49;
 
 -- 5. Найти количество специальностей
 select count(*)
-from (select distinct speciality from staff) as temp;
+from (select distinct роst from staff) as temp;
 
--- 6. Вывести специальности, у которых средний возраст сотрудника меньше 44 лет
-select speciality, avg(age)
+-- 6. Вывести специальности, у которых средний возраст сотрудника меньше 30 лет
+select роst, avg(age)
 from staff
-group by speciality
-having avg(age)<44;
+group by роst
+having avg(age)<30;
